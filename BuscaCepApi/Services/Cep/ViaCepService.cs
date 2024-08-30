@@ -10,14 +10,14 @@ namespace BuscaCepApi.Services.Cep
         {
             _viaCepRepository = viaCepRepository;
         }
-        public Task<EnderecoModel> BuscarEndereco(int cep)
+        public async Task<EnderecoModel> BuscarEndereco(int cep)
         {
             if (cep.ToString().Length != 8)
             {
                 return null;
             }
 
-            return _viaCepRepository.BuscarEndereco(cep);
+            return await _viaCepRepository.BuscarEndereco(cep);
         }
     }
 }
