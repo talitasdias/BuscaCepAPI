@@ -1,0 +1,24 @@
+# Diretórios de build e dependências
+BuscaCepApi/bin/
+BuscaCepApi/obj/
+
+# Configurações do Visual Studio
+.vs/
+BuscaCepApi/*.user
+
+# Arquivos de log
+BuscaCepApi/*.log
+
+# Arquivos gerados por pacotes NuGet
+BuscaCepApi/packages/
+BuscaCepApi/*.nupkg
+
+# Configurações do Rider e do Visual Studio Code
+.idea/
+BuscaCepApi/.idea/
+BuscaCepApi/*.csproj.user
+
+# Arquivos de segredo
+BuscaCepApi/appsettings.Local.json
+BuscaCepApi/appsettings.*.json
+BuscaCepApi/secrets.json

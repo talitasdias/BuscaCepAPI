@@ -1,0 +1,6 @@
+@BuscaCepApi_HostAddress = http://localhost:5198
+
+GET {{BuscaCepApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
