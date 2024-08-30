@@ -17,6 +17,7 @@ BuscaCepApi/*.nupkg
 .idea/
 BuscaCepApi/.idea/
 BuscaCepApi/*.csproj.user
+BuscaCepApi/BuscaCepApi.csproj
 
 # Arquivos de segredo
 BuscaCepApi/appsettings.Local.json
