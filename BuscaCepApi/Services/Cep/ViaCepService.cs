@@ -12,7 +12,12 @@ namespace BuscaCepApi.Services.Cep
         }
         public Task<EnderecoModel> BuscarEndereco(int cep)
         {
-            throw new NotImplementedException();
+            if (cep.ToString().Length != 0)
+            {
+                return null;
+            }
+
+            return _viaCepRepository.BuscarEndereco(cep);
         }
     }
 }
