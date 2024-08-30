@@ -1,4 +1,5 @@
 ﻿using BuscaCepApi.Models;
+using System.Text.Json;
 
 namespace BuscaCepApi.Repositories.Cep
 {
@@ -9,9 +10,19 @@ namespace BuscaCepApi.Repositories.Cep
         {
             _httpClient = httpClient;
         }
-        public Task<EnderecoModel> BuscarEndereco(int cep)
+        public async Task<EnderecoModel> BuscarEndereco(int cep)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var response = await _httpClient.GetAsync($"https://viacep.com.br/ws/{cep}/json/");
+                response.EnsureSuccessStatusCode();
+                var jsonResponse = await response.Content.ReadAsStringAsync();
+                return JsonSerializer.Deserialize<EnderecoModel>(jsonResponse);
+            }
+            catch (HttpRequestException ex)
+            {
+                throw new HttpRequestException($"Erro ao buscar o CEP {cep}: {ex.Message}", ex);
+            }
         }
     }
 }
