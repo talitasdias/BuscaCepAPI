@@ -12,7 +12,7 @@ namespace BuscaCepApi.Services.Cep
         }
         public Task<EnderecoModel> BuscarEndereco(int cep)
         {
-            if (cep.ToString().Length != 0)
+            if (cep.ToString().Length != 8)
             {
                 return null;
             }
