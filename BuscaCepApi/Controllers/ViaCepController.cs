@@ -14,5 +14,27 @@ namespace BuscaCepApi.Controllers
         {
             _viaCepService = viaCepService;
         }
+
+        [HttpGet("{cep}")]
+        public async Task<IActionResult> BuscarEndereco(int cep)
+        {
+            try
+            {
+                var endereco = await _viaCepService.BuscarEndereco(cep);
+
+                if (endereco == null)
+                {
+                    return BadRequest(new { message = "CEP inválido. O CEP deve ter 8 dígitos." });
+                }
+
+                return Ok(endereco);
+            }
+            catch
+            (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, new { message = "Ocorreu um erro inesperado. Tente novamente mais tarde." });
+
+            }
+        }
     }
 }
